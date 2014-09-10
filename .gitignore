@@ -1,0 +1,31 @@
+# Java Files #
+*.class
+
+# Package Files
+# *.jar, we need to checkin gradle/wrapper/gradle-wrapper.jar
+*.war
+*.ear
+
+# Eclipse files
+.settings
+.classpath
+.project
+
+# IntelliJ files
+.idea
+local.properties
+*.iml
+out
+
+# Gradle files
+.gradle
+build
+
+# Maven files
+target
+
+# Mac
+.DS_Store
+
+# My private property-file should not be stored in Git
+my-application.properties

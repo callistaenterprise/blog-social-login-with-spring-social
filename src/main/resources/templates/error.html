@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Error Page</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-social.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    </head>
+
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" />
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js" />
+
+        <!--
+        <div th:replace="fragments/header :: userInfo"/>
+        -->
+
+        <div class="container">
+            <h2>Error Page</h2>
+
+            <p>
+                An error occurred at <span th:text="${timestamp}"/>
+            </p>
+            <p>
+                <div>
+                    <span style="font-weight: bold">HTTP Status: </span><span th:text="${status}"/>
+                    (<span th:text="${error}"/>)
+                </div>
+                <div><span style="font-weight: bold">Message: </span><span th:text="${message}"/></div>
+
+                <div th:unless="${exception == null}"><span style="font-weight: bold">Exception: </span><span th:text="${exception}"/></div>
+                <div th:unless="${exception == null}"><span style="font-weight: bold">Trace:     </span><span th:text="${trace}"/></div>
+            </p>
+            <p>
+                Back to the <a th:href="@{/}">Home Page</a>
+            </p>
+        </div><!-- /.container -->
+    </body>
+</html>

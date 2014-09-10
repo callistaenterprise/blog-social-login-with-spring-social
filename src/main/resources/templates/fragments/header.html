@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml">
+
+    <body>
+
+        <div th:fragment="userInfo">
+            <!-- Replace navbar-default with navbar-inverse to get a black header -->
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">OAuth social media demo</a>
+                    </div>
+                    <div>
+                        <p th:unless="${currentUserConnection == null}" class="navbar-text navbar-right">
+                            Signed in using
+                            <a th:if="${currentUserConnection.providerId == 'linkedin'}" class="ml btn btn-social-icon btn-sm btn-linkedin">   <i class="fa fa-linkedin"></i></a>
+                            <a th:if="${currentUserConnection.providerId == 'facebook'}" class="ml btn btn-social-icon btn-sm btn-facebook">   <i class="fa fa-facebook"></i></a>
+                            <a th:if="${currentUserConnection.providerId == 'twitter'}"  class="ml btn btn-social-icon btn-sm btn-twitter">    <i class="fa fa-twitter"></i></a>
+                            <a th:if="${currentUserConnection.providerId == 'live'}"     class="ml btn btn-social-icon btn-sm btn-microsoft">  <i class="fa fa-windows"></i></a>
+                            <a th:if="${currentUserConnection.providerId == 'github'}"   class="ml btn btn-social-icon btn-sm btn-github">     <i class="fa fa-github"></i></a>
+                            <a th:if="${currentUserConnection.providerId == 'google'}"   class="ml btn btn-social-icon btn-sm btn-google-plus"><i class="fa fa-google-plus"></i></a>
+
+                            as <a th:href="${currentUserConnection.profileUrl}" class="navbar-link"><span th:text="${currentUserDisplayName}"/></a>
+                            <img th:src="${currentUserConnection.imageUrl}" width="32" height="32" />
+                        </p>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+    </body>
+</html>
